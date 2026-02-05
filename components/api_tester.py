@@ -61,6 +61,7 @@ class APITester:
         """
         payload = {
             "language": language,
+            "audio_format": "mp3",  # Required by backend
             "metadata": {
                 "message": message if message else "API Test Request",
                 "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
@@ -68,7 +69,7 @@ class APITester:
             }
         }
         
-        # Add audio based on mode - NEVER both
+        # Add audio based on mode
         if audio_mode == "url":
             payload["audio_url"] = audio_url.strip()
         else:
@@ -86,7 +87,7 @@ class APITester:
         headers = {
             "Content-Type": "application/json",
             "Accept": "application/json",
-            "Authorization": f"Bearer {self.api_key}"
+            "x-api-key": self.api_key  # Updated to match backend requirement
         }
         return headers
     
