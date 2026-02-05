@@ -15,9 +15,16 @@ app = FastAPI(
 # =========================
 class VoiceRequest(BaseModel):
     language: str = Field(..., example="auto")
-    audio_format: str = Field(..., example="mp3")
-    audio_base64: str = Field(..., example="SUQzBAAAAAAA")
 
+    audio_format: str = Field(
+        ..., alias="audioFormat", example="mp3"
+    )
+    audio_base64: str = Field(
+        ..., alias="audioBase64", example="SUQzBAAAAAAA"
+    )
+
+    class Config:
+        populate_by_name = True
 
 # =========================
 # Response Schema
