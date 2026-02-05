@@ -1,0 +1,828 @@
+/* AI Voice Detection API Tester - Advanced Futuristic Styles */
+
+/* Root variables for consistent theming */
+:root {
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --danger-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-primary: #ffffff;
+    --text-secondary: #a0aec0;
+    --shadow-glow: 0 8px 32px rgba(102, 126, 234, 0.3);
+}
+
+/* Keyframe Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+@keyframes glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(102, 126, 234, 0.5),
+            0 0 40px rgba(102, 126, 234, 0.3),
+            0 0 60px rgba(102, 126, 234, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(102, 126, 234, 0.7),
+            0 0 60px rgba(102, 126, 234, 0.5),
+            0 0 90px rgba(102, 126, 234, 0.3);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes scan {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Main container with animated background */
+.main {
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.main::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: float 20s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.main::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(102, 252, 241, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Header with advanced glassmorphism */
+.main-header {
+    text-align: center;
+    padding: 3rem 2rem;
+    margin-bottom: 3rem;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-radius: 24px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+    animation: fadeInUp 0.8s ease-out;
+    overflow: hidden;
+}
+
+.main-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.1),
+            transparent);
+    animation: shimmer 3s infinite;
+}
+
+.main-header::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+    pointer-events: none;
+}
+
+.main-header h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 200%;
+    animation: shimmer 3s ease-in-out infinite;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
+    letter-spacing: -1px;
+}
+
+.main-header .subtitle {
+    color: #cbd5e0;
+    font-size: 1.3rem;
+    font-weight: 300;
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Result cards with advanced animations */
+.result-card {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 20px;
+    margin: 1.5rem 0;
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: fadeInUp 0.6s ease-out;
+    cursor: pointer;
+}
+
+.result-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, currentColor, transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.result-card:hover::before {
+    opacity: 1;
+}
+
+.result-card::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.result-card:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+.result-card:hover {
+    transform: translateY(-8px) scale(1.02);
+}
+
+.result-pass {
+    background: linear-gradient(135deg,
+            rgba(79, 172, 254, 0.15) 0%,
+            rgba(0, 242, 254, 0.1) 100%);
+    border: 2px solid rgba(79, 172, 254, 0.4);
+    box-shadow:
+        0 8px 32px rgba(79, 172, 254, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.result-pass:hover {
+    border-color: rgba(79, 172, 254, 0.6);
+    box-shadow:
+        0 12px 48px rgba(79, 172, 254, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.result-fail {
+    background: linear-gradient(135deg,
+            rgba(250, 112, 154, 0.15) 0%,
+            rgba(254, 225, 64, 0.1) 100%);
+    border: 2px solid rgba(250, 112, 154, 0.4);
+    box-shadow:
+        0 8px 32px rgba(250, 112, 154, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.result-fail:hover {
+    border-color: rgba(250, 112, 154, 0.6);
+    box-shadow:
+        0 12px 48px rgba(250, 112, 154, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.result-warning {
+    background: linear-gradient(135deg,
+            rgba(251, 191, 36, 0.15) 0%,
+            rgba(245, 158, 11, 0.1) 100%);
+    border: 2px solid rgba(251, 191, 36, 0.4);
+    box-shadow:
+        0 8px 32px rgba(251, 191, 36, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.result-warning:hover {
+    border-color: rgba(251, 191, 36, 0.6);
+    box-shadow:
+        0 12px 48px rgba(251, 191, 36, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.result-icon {
+    font-size: 4rem;
+    margin-right: 2rem;
+    animation: pulse 2s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 0 10px currentColor);
+}
+
+.result-content {
+    position: relative;
+    z-index: 1;
+}
+
+.result-content h3 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+}
+
+.result-content p {
+    margin: 0;
+    color: #cbd5e0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Input field with futuristic styling */
+.stTextInput>div>div>input {
+    background: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 2px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 16px !important;
+    color: #ffffff !important;
+    padding: 1rem 1.5rem !important;
+    font-size: 1.1rem !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+.stTextInput>div>div>input:focus {
+    border-color: #667eea !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    box-shadow:
+        0 0 0 4px rgba(102, 126, 234, 0.2),
+        inset 0 2px 4px rgba(0, 0, 0, 0.2),
+        0 8px 16px rgba(102, 126, 234, 0.3) !important;
+    transform: translateY(-2px) !important;
+}
+
+.stTextInput>div>div>input::placeholder {
+    color: #718096 !important;
+}
+
+/* Button with advanced hover effects */
+.stButton>button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 16px !important;
+    padding: 1rem 3rem !important;
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow:
+        0 8px 24px rgba(102, 126, 234, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+}
+
+.stButton>button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.stButton>button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.stButton>button:hover {
+    transform: translateY(-4px) scale(1.05) !important;
+    box-shadow:
+        0 12px 32px rgba(102, 126, 234, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+.stButton>button:active {
+    transform: translateY(-2px) scale(1.02) !important;
+}
+
+/* Metrics with animated counters */
+[data-testid="stMetricValue"] {
+    font-size: 2.5rem !important;
+    font-weight: 900 !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.5));
+}
+
+[data-testid="stMetricLabel"] {
+    color: #cbd5e0 !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+}
+
+[data-testid="stMetric"] {
+    background: rgba(255, 255, 255, 0.03) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 16px !important;
+    padding: 1.5rem !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    transition: all 0.3s ease !important;
+}
+
+[data-testid="stMetric"]:hover {
+    transform: translateY(-4px);
+    border-color: rgba(102, 126, 234, 0.5);
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+}
+
+/* Expander with modern accordion style */
+.streamlit-expanderHeader {
+    background: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 12px !important;
+    border: 2px solid rgba(255, 255, 255, 0.1) !important;
+    padding: 1rem 1.5rem !important;
+    transition: all 0.3s ease !important;
+    font-weight: 600 !important;
+}
+
+.streamlit-expanderHeader:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(102, 126, 234, 0.5) !important;
+    transform: translateX(8px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.streamlit-expanderContent {
+    background: rgba(0, 0, 0, 0.2) !important;
+    border-radius: 0 0 12px 12px !important;
+    border: 2px solid rgba(255, 255, 255, 0.1) !important;
+    border-top: none !important;
+    padding: 1.5rem !important;
+}
+
+/* JSON viewer with syntax highlighting effect */
+.stJson {
+    background: rgba(0, 0, 0, 0.4) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 12px !important;
+    padding: 1.5rem !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    font-family: 'Fira Code', 'Monaco', monospace !important;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Alert with modern styling */
+.stAlert {
+    border-radius: 12px !important;
+    backdrop-filter: blur(10px) !important;
+    border: 2px solid !important;
+    padding: 1.25rem !important;
+    animation: slideIn 0.5s ease-out;
+}
+
+/* Footer with subtle animation */
+.footer {
+    text-align: center;
+    padding: 3rem 0;
+    color: #718096;
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #667eea, transparent);
+}
+
+.footer p {
+    margin: 0;
+    font-size: 1rem;
+    animation: fadeInUp 0.8s ease-out 0.5s both;
+}
+
+/* Spinner with custom animation */
+.stSpinner>div {
+    border-color: #667eea transparent transparent transparent !important;
+    animation: rotate 1s linear infinite !important;
+}
+
+/* Progress bar with gradient */
+.stProgress>div>div {
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%) !important;
+    background-size: 200% 100% !important;
+    animation: shimmer 2s ease-in-out infinite !important;
+    border-radius: 10px !important;
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.5) !important;
+}
+
+.stProgress>div {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+}
+
+/* Sidebar with glassmorphism */
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg,
+            rgba(15, 15, 35, 0.95) 0%,
+            rgba(26, 26, 46, 0.95) 100%) !important;
+    backdrop-filter: blur(20px) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-testid="stSidebar"]>div:first-child {
+    background: transparent !important;
+}
+
+/* Code blocks with terminal-like styling */
+.stCodeBlock {
+    background: rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(0, 255, 136, 0.3) !important;
+    padding: 1rem !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.stCodeBlock::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(0, 255, 136, 0.5),
+            transparent);
+    animation: scan 2s ease-in-out infinite;
+}
+
+/* Tooltip with modern design */
+.stTooltipIcon {
+    color: #667eea !important;
+    filter: drop-shadow(0 0 4px rgba(102, 126, 234, 0.5)) !important;
+}
+
+/* Divider with gradient animation */
+hr {
+    border: none !important;
+    height: 2px !important;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(102, 126, 234, 0.5),
+            rgba(118, 75, 162, 0.5),
+            transparent) !important;
+    margin: 3rem 0 !important;
+    position: relative !important;
+}
+
+hr::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.3),
+            transparent);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Tabs styling */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.03) !important;
+    padding: 0.5rem !important;
+    border-radius: 16px !important;
+}
+
+.stTabs [data-baseweb="tab"] {
+    background: transparent !important;
+    border-radius: 12px !important;
+    padding: 0.75rem 1.5rem !important;
+    transition: all 0.3s ease !important;
+    border: 1px solid transparent !important;
+}
+
+.stTabs [data-baseweb="tab"]:hover {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(102, 126, 234, 0.3) !important;
+}
+
+.stTabs [aria-selected="true"] {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    border-color: rgba(102, 126, 234, 0.5) !important;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3) !important;
+}
+
+/* Select box styling */
+.stSelectbox>div>div {
+    background: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 2px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 12px !important;
+    transition: all 0.3s ease !important;
+}
+
+.stSelectbox>div>div:hover {
+    border-color: rgba(102, 126, 234, 0.5) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Checkbox styling */
+.stCheckbox {
+    transition: all 0.3s ease !important;
+}
+
+.stCheckbox:hover {
+    transform: translateX(4px);
+}
+
+/* Radio button styling */
+.stRadio>div {
+    background: rgba(255, 255, 255, 0.03) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 12px !important;
+    padding: 1rem !important;
+}
+
+/* File uploader styling */
+.stFileUploader {
+    background: rgba(255, 255, 255, 0.03) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 2px dashed rgba(102, 126, 234, 0.3) !important;
+    border-radius: 16px !important;
+    padding: 2rem !important;
+    transition: all 0.3s ease !important;
+}
+
+.stFileUploader:hover {
+    border-color: rgba(102, 126, 234, 0.6) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.2) !important;
+}
+
+/* Slider styling */
+.stSlider>div>div>div {
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+/* Download button */
+.stDownloadButton>button {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 12px !important;
+    padding: 0.75rem 2rem !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 12px rgba(79, 172, 254, 0.3) !important;
+}
+
+.stDownloadButton>button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(79, 172, 254, 0.5) !important;
+}
+
+/* Dataframe styling */
+.stDataFrame {
+    background: rgba(255, 255, 255, 0.03) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Success/Error/Warning/Info message boxes */
+.stSuccess,
+.stError,
+.stWarning,
+.stInfo {
+    backdrop-filter: blur(10px) !important;
+    border-radius: 12px !important;
+    animation: slideIn 0.5s ease-out !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* Loading indicator */
+.stSpinner {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Card container class (if you add custom divs) */
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(102, 126, 234, 0.3);
+    border-color: rgba(102, 126, 234, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .main-header .subtitle {
+        font-size: 1rem;
+    }
+
+    .result-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .result-icon {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Print styles */
+@media print {
+
+    .main::before,
+    .main::after,
+    .main-header::before,
+    .main-header::after {
+        display: none;
+    }
+}
