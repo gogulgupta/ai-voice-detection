@@ -2,6 +2,7 @@
 🎤 AI Voice Detection API Tester
 Hackathon Judge Tool - Test & Validate Participant APIs
 Enhanced with Audio Mode Toggle, Language Selection, and Schema Validation
+# Force reload: Updated configuration
 """
 import streamlit as st
 import json
@@ -189,15 +190,10 @@ def validate_inputs(inputs):
     if not is_valid:
         errors.append(f"API Key: {error}")
     
-    # Validate audio based on mode
-    if inputs["audio_mode"] == "url":
-        is_valid, error = validate_audio_url(inputs["audio_url"])
-        if not is_valid:
-            errors.append(f"Audio URL: {error}")
-    else:
-        is_valid, error = validate_audio_base64(inputs["audio_base64"])
-        if not is_valid:
-            errors.append(f"Audio Base64: {error}")
+    # Validate Base64 Audio
+    is_valid, error = validate_audio_base64(inputs["audio_base64"])
+    if not is_valid:
+        errors.append(f"Audio Base64: {error}")
     
     # Validate language
     is_valid, error = validate_language(inputs["language"])
@@ -224,13 +220,10 @@ if render_test_button():
                 timeout=timeout
             )
             
-            # Execute test with new parameters
+            # Execute test with Base64 only
             result = tester.get_result(
-                audio_mode=inputs["audio_mode"],
-                audio_url=inputs["audio_url"],
                 audio_base64=inputs["audio_base64"],
-                language=inputs["language"],
-                message=inputs["message"]
+                language=inputs["language"]
             )
         
         # Display results
@@ -291,16 +284,15 @@ if render_test_button():
             st.json({
                 "Content-Type": "application/json",
                 "Accept": "application/json",
-                "Authorization": "Bearer [HIDDEN]"
+                "x-api-key": "[HIDDEN]"
             })
             
             st.markdown("**Payload:**")
+            # Create a display payload (truncated Base64)
+            display_b64 = inputs["audio_base64"][:50] + "..." if len(inputs["audio_base64"]) > 50 else inputs["audio_base64"]
             payload = tester.build_payload(
-                audio_mode=inputs["audio_mode"],
-                audio_url=inputs["audio_url"],
-                audio_base64=inputs["audio_base64"][:50] + "..." if len(inputs["audio_base64"]) > 50 else inputs["audio_base64"],
-                language=inputs["language"],
-                message=inputs["message"]
+                audio_base64=display_b64,
+                language=inputs["language"]
             )
             st.json(payload)
 
@@ -310,17 +302,10 @@ with st.expander("🧪 Quick Test with Sample Data", expanded=False):
     st.markdown("""
     **Want to test the UI quickly?** Use these sample values:
     
-    #### URL Mode:
-    - **Endpoint URL:** `https://httpbin.org/post` (echo server for testing)
-    - **API Key:** `test-api-key-12345`
-    - **Audio URL:** `https://example.com/sample.mp3`
-    - **Language:** Auto Detect
-    
     #### Base64 Mode:
     - Use a small Base64-encoded MP3/WAV file
     - No data URI prefix (no `data:audio/mp3;base64,`)
-    
-    *Note: httpbin.org will echo back your request, not perform actual AI detection.*
+    - Valid endpoints: `http://127.0.0.1:8000/detect` (Local)
     """)
 
 # Footer

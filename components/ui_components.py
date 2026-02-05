@@ -58,32 +58,14 @@ def render_input_section() -> Dict[str, Any]:
     st.markdown("---")
     st.markdown("### 🎵 Audio Input")
     
-    # Audio Mode Toggle
-    audio_mode = st.radio(
-        "Select Audio Input Mode:",
-        options=["url", "base64"],
-        format_func=lambda x: "🔗 Audio via URL" if x == "url" else "📝 Audio via Base64",
-        horizontal=True,
-        help="Choose how to provide the audio file"
+    # Strictly Base64 Input Only
+    audio_base64 = st.text_area(
+        "📝 Audio Base64 Data",
+        placeholder="Paste Base64 encoded audio here...",
+        height=120,
+        help="Base64 encoded audio content"
     )
-    
-    audio_url = ""
-    audio_base64 = ""
-    
-    if audio_mode == "url":
-        audio_url = st.text_input(
-            "🎵 Audio File URL",
-            placeholder="https://example.com/audio.mp3",
-            help="URL of the audio file to test (.mp3 or .wav)"
-        )
-    else:
-        audio_base64 = st.text_area(
-            "📝 Audio Base64 Data",
-            placeholder="Paste Base64 encoded audio here...",
-            height=120,
-            help="Base64 encoded audio content"
-        )
-        st.caption("💡 **Hint:** MP3 must be Base64-encoded, no data URI prefix (no `data:audio/mp3;base64,`)")
+    st.caption("💡 **Hint:** MP3 must be Base64-encoded, no data URI prefix (no `data:audio/mp3;base64,`)")
     
     st.markdown("---")
     st.markdown("### 🌍 Language & Message")
@@ -108,8 +90,6 @@ def render_input_section() -> Dict[str, Any]:
     return {
         "endpoint_url": endpoint_url,
         "api_key": api_key,
-        "audio_mode": audio_mode,
-        "audio_url": audio_url,
         "audio_base64": audio_base64,
         "language": language,
         "message": message
